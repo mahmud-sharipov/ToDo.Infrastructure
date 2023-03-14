@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mahmud-sharipov/ToDo.git
+    repoURL: https://github.com/mahmud-sharipov/ToDo.Infrastructure.git
     targetRevision: HEAD
-    path: Infrastructure/k8s/Environments/production/deployment/
+    path: k8s/Environments/production/deployment/
   destination:
     server: https://kubernetes.default.svc
     namespace: todo-dev
