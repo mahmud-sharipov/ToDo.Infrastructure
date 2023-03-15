@@ -60,12 +60,12 @@ spec:
           value: http://+:80
         - name: ASPNETCORE_ENVIRONMENT
           value: Development
-        - name: ServerUrl
+        - name: TodoApiUrl
           valueFrom:
             configMapKeyRef:
               key: server_url
               name: client-configmap
-        image: mahmudsharipov/todoclient:1.0.0
+        image: mahmudsharipov/todoclient:1.0.1
         name: todo-client
         ports:
         - containerPort: 80
