@@ -65,7 +65,7 @@ spec:
             configMapKeyRef:
               key: server_url
               name: client-configmap
-        image: mahmudsharipov/todoclient:1.0.7
+        image: mahmudsharipov/todoclient:1.0.6
         name: todo-client
         ports:
         - containerPort: 80
@@ -165,7 +165,7 @@ spec:
             configMapKeyRef:
               key: database_name
               name: server-configmap
-        image: mahmudsharipov/todoserver:1.0.0
+        image: mahmudsharipov/todoserver:1.0.1
         name: todo-server
         ports:
         - containerPort: 80
