@@ -3,7 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: mahmudsharipov/todoclient
-  newTag: 1.0.6
+  newTag: 1.0.7
 - name: mahmudsharipov/todoserver
   newTag: 1.0.0
 resources:
