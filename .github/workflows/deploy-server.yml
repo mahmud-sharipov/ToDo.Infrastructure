@@ -19,7 +19,7 @@ jobs:
           kustomize-version: "3.9.2"
       - name: update manifest files with kustomize
         run: |
-          cd ./k8s/environments/production
+          cd ./k8s/Environments/production
           kustomize edit set image mahmudsharipov/todoserver:${{ github.event.inputs.version }}
           cat kustomization.yml
           kustomize build . > ./deployment/deployment.yml
