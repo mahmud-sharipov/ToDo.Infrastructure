@@ -1,0 +1,31 @@
+name: Push new client release to Production
+on:
+  repository_dispatch:
+  #  workflow_dispatch:
+    types: "deploy-todo-client-production"
+    inputs:
+      tag:
+        description: "Tag"
+        default: "1.1.1"
+        required: true
+jobs:
+  kustomize-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.9.2"
+      - name: update manifest files with kustomize
+        run: |
+          cd ./k8s/environments/production
+          kustomize edit set image mahmudsharipov/todoclient:${{ github.event.inputs.version }}
+          cat kustomization.yml
+          kustomize build . > ./deployment/deployment.yml
+
+      - name: git commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4.14.1
+        with:
+          # Commit message
+          commit_message: push ${{ github.event.inputs.tag }} client version
